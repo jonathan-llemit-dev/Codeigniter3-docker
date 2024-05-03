@@ -35,5 +35,13 @@ services:
     ports:
       - "8080:80"
 
+  cron:
+    build: .
+    command: "cron -f"
+    volumes:
+      - .:/var/www/html
+    depends_on:
+      - web
+
 volumes:
   db_data:

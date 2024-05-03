@@ -1,5 +1,4 @@
 <?php
-// Define the path to your CodeIgniter index.php file
 define('BASEPATH', __DIR__ . '/../');
 require_once BASEPATH . 'index.php';
 
