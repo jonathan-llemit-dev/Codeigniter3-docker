@@ -36,12 +36,12 @@ services:
       - "8080:80"
 
   cron:
-    build: .
-    command: "cron -f"
-    volumes:
-      - .:/var/www/html
+    build:
+      context: ./
+      dockerfile: ./Dockerfile
+    entrypoint: [ "bash", "-c", "cron -f"] 
     depends_on:
-      - web
+      - db
 
 volumes:
   db_data:

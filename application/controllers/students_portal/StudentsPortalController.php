@@ -104,11 +104,7 @@ class StudentsPortalController extends CI_Controller
 
         $StudentModel = new StudentModel;
 
-        // Get the current date and time
-        $currentDateTime = date('Y-m-d H:i:s');
-
-        // Convert the current date and time to a string
-        $stringDateTime = (string) $currentDateTime;
+        $stringDateTime = "hayst";
 
         $data = [
             'student_name' => $stringDateTime,
