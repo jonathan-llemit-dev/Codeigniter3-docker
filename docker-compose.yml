@@ -26,5 +26,14 @@ services:
       - db_data:/var/lib/mysql
       - ./dump:/docker-entrypoint-initdb.d/
 
+  phpmyadmin:
+    image: phpmyadmin/phpmyadmin
+    restart: always
+    environment:
+      PMA_HOST: db
+      MYSQL_ROOT_PASSWORD: passwd
+    ports:
+      - "8080:80"
+
 volumes:
   db_data:

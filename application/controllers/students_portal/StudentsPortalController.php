@@ -99,4 +99,25 @@ class StudentsPortalController extends CI_Controller
         return redirect('students_portal');
     }
 
+    public function scheduledAddingOfData()
+    {
+
+        $StudentModel = new StudentModel;
+
+        // Get the current date and time
+        $currentDateTime = date('Y-m-d H:i:s');
+
+        // Convert the current date and time to a string
+        $stringDateTime = (string) $currentDateTime;
+
+        $data = [
+            'student_name' => $stringDateTime,
+            'age' => 24,
+            'gender' => 'male',
+        ];
+
+        $StudentModel->insert_data($data);
+
+    }
+
 }
