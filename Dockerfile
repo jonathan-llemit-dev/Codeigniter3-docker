@@ -33,21 +33,21 @@ RUN apt-get update && apt-get install -y \
 COPY php.ini /usr/local/etc/php/
 
 # Create the cron log file
-RUN touch /var/log/cron.log
-RUN chmod 644 /var/log/cron.log
+#RUN touch /var/log/cron.log
+#RUN chmod 644 /var/log/cron.log
 
 # Set executable permissions for cron.php and index.php
-RUN chmod +x /var/www/html/application/scripts/cron.php
-RUN chmod +x /var/www/html/index.php
+#RUN chmod +x /var/www/html/application/scripts/cron.php
+#RUN chmod +x /var/www/html/index.php
 
 # Copy crontab file to the cron.d directory
-COPY crontab /etc/cron.d/crontab
+#COPY crontab /etc/cron.d/crontab
 
 # Give execution rights on the cron job
-RUN chmod 0644 /etc/cron.d/crontab
+#RUN chmod 0644 /etc/cron.d/crontab
 
 # Apply cron job
-RUN crontab /etc/cron.d/crontab
+#RUN crontab /etc/cron.d/crontab
 
 # Start cron service
-CMD service cron start && apache2-foreground
+CMD ["apache2-foreground"]

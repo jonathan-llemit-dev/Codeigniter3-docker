@@ -1,2 +1,2 @@
-* * * * * /var/www/html/application/scripts/cron.php >> /var/www/html/application/logs/cron.log 2>&1
 * * * * * php index.php SampleController/scheduledAddingOfData
+1  *  * * * php index.php SampleController/scheduledAddingOfData
