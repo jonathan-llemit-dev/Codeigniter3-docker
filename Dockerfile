@@ -33,13 +33,19 @@ RUN apt-get update && apt-get install -y \
 COPY php.ini /usr/local/etc/php/
 
 # Copy crontab file to the cron.d directory
-#COPY crontab /etc/cron.d/crontab
+# COPY crontab /etc/cron.d/crontab
+
+# RUN echo "* * * * * root php /var/www/html/application/scripts/cron.php >> /var/log/cron.log 2>&1" >> /etc/crontab
+RUN echo "* * * * * cd /var/www/html/ && php index.php SampleController scheduledAddingOfData >> /var/log/cron.log 2>&1" >> /etc/crontab
+
+# Create the log file to be able to run tail
+RUN touch /var/log/cron.log
 
 # Give execution rights on the cron job
-#RUN chmod 0644 /etc/cron.d/crontab
+RUN chmod 0644 /etc/crontab
 
 # Apply cron job
-#RUN crontab /etc/cron.d/crontab
+RUN crontab /etc/crontab
 
 # Expose port 80 and start Apache server
 EXPOSE 80
