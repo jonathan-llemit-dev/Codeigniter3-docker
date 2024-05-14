@@ -11,7 +11,6 @@ services:
       - .:/var/www/html
     depends_on:
       - db
-      - cron
 
   db:
     image: mysql:5.7
@@ -38,11 +37,9 @@ services:
 
   cron:
     build:
-      context: .
-      dockerfile: Dockerfile
-    volumes:
-      - .:/var/www/html
-    entrypoint: [ "bash", "-c", "cron && tail -f /var/log/cron.log" ]
+      context: ./
+      dockerfile: ./Dockerfile
+    entrypoint: [ "bash", "-c", "cron -f"] 
     depends_on:
       - db
 

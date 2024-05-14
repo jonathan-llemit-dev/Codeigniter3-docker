@@ -1,2 +1,3 @@
-* * * * * /var/www/html/application/scripts/cron.php >> /var/www/html/application/logs/cron.log 2>&1
-* * * * * php index.php SampleController/scheduledAddingOfData
+# * * * * * php /var/www/html/application/scripts/cron.php >> /var/www/html/application/logs/cron.log 2>&1
+# * * * * * /var/www/html/application/scripts/cron.php >> /var/www/html/application/logs/cron.log 2>&1
+* * * * * echo "Hello from cron" >> /var/www/html/application/logs/cron.log 2>&1
