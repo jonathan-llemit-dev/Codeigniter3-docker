@@ -35,5 +35,13 @@ services:
     ports:
       - "8080:80"
 
+  cron:
+    build:
+      context: ./
+      dockerfile: ./Dockerfile
+    entrypoint: [ "bash", "-c", "cron -f"] 
+    depends_on:
+      - db
+
 volumes:
   db_data:
